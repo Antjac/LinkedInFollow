@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LinkedIn Follower</title>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h2>LinkedIn Auto Follow</h2>
+    
+    <label for="urls">Enter Company URLs (one per line):</label>
+    <textarea id="urls" rows="10" placeholder="https://www.linkedin.com/company/google
+https://www.linkedin.com/company/microsoft"></textarea>
+
+    <div class="controls">
+      <button id="startBtn" class="primary">Start Following</button>
+      <button id="stopBtn" class="secondary" disabled>Stop</button>
+    </div>
+
+    <div class="status-section">
+      <h3>Status</h3>
+      <div id="status">Ready</div>
+      <div id="progress">0 / 0</div>
+    </div>
+
+    <div class="logs-section">
+      <h3>Logs</h3>
+      <div id="logs"></div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

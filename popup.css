@@ -1,0 +1,108 @@
+body {
+  width: 350px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px;
+  background-color: #f3f2ef; /* LinkedIn background color */
+}
+
+.container {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-top: 0;
+  color: #0a66c2; /* LinkedIn Blue */
+  text-align: center;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+button {
+  flex: 1;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+button.primary {
+  background-color: #0a66c2;
+  color: white;
+}
+
+button.primary:hover {
+  background-color: #004182;
+}
+
+button.secondary {
+  background-color: white;
+  color: #666;
+  border: 1px solid #666;
+}
+
+button.secondary:hover {
+  background-color: #f3f3f3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  border: none;
+}
+
+.status-section, .logs-section {
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+h3 {
+  font-size: 14px;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+#status {
+  font-weight: bold;
+  color: #0a66c2;
+  margin-bottom: 5px;
+}
+
+#logs {
+  height: 100px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  padding: 5px;
+  font-size: 12px;
+  background-color: #f9f9f9;
+}
+
+.log-entry {
+  margin-bottom: 3px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 2px;
+}
+
+.log-success { color: green; }
+.log-error { color: red; }
+.log-info { color: gray; }
