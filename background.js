@@ -71,9 +71,10 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
                             chrome.storage.local.set({ lastProcessedIndex: data.currentIndex });
                         }).catch(err => {
                             console.log("Could not send message to tab", err);
+                            handleContentScriptResult('Skipped: Could not reach content script on this page');
                         });
                     }
-                }, 2000);
+                }, 3000); // Increased slightly for better loading with React
             }
         });
     }
@@ -83,11 +84,19 @@ function handleContentScriptResult(result) {
     chrome.storage.local.get(['currentIndex', 'currentTabId', 'urls'], (data) => {
         const { currentIndex, currentTabId, urls } = data;
 
+        // Determine log type
+        let logType = 'success';
+        if (result.startsWith('Error')) {
+            logType = 'error';
+        } else if (result.startsWith('Skipped') || result.startsWith('Already Following')) {
+            logType = 'info';
+        }
+
         // Log result
         chrome.runtime.sendMessage({
             action: 'LOG',
             message: `Result for ${urls[currentIndex]}: ${result}`,
-            type: result.startsWith('Error') ? 'error' : 'success'
+            type: logType
         });
 
         // Wait random time before next

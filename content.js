@@ -88,6 +88,6 @@ function attemptFollow() {
         }, 1000);
     } else {
         console.log('Main Follow button not found.');
-        chrome.runtime.sendMessage({ action: 'CONTENT_SCRIPT_ACTION_COMPLETE', result: 'Error: Main button not found' });
+        chrome.runtime.sendMessage({ action: 'CONTENT_SCRIPT_ACTION_COMPLETE', result: 'Skipped: Main Follow button not found (might be already followed)' });
     }
 }
